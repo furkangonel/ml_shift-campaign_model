@@ -92,9 +92,10 @@ uvicorn main:app --reload
 **4️⃣ API Documentation**
 
 For Swagger UI documentation:
-# 📌 http://127.0.0.1:8000/docs
-# 📌 http://127.0.0.1:8000/redoc
-
+```sh
+ 📌 http://127.0.0.1:8000/docs
+ 📌 http://127.0.0.1:8000/redoc
+```
 
 **🛠️ Technologies Used**
 ```sh
