@@ -1,0 +1,45 @@
+# Sanal ortam dosyaları
+venv/
+.env
+
+# Bağımlılıklar
+node_modules/
+__pycache__/
+
+# Derlenmiş dosyalar
+*.pyc
+*.pyo
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE ve Editör Dosyaları
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Log ve Geçici Dosyalar
+*.log
+*.tmp
+*.bak
+.DS_Store
+
+# Veritabanı ve Model Dosyaları
+*.sqlite3
+*.db
+*.pkl
+
+# JSON / CSV gibi büyük veri dosyaları (Eğer versiyon kontrolüne dahil etmek istemiyorsan)
+*.json
+*.csv
+
+# PDF veya Rapor Dosyaları
+*.pdf
+
+# Docker ve CI/CD Dosyaları
+docker-compose.override.yml
