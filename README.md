@@ -1,12 +1,21 @@
 ~Project Schema 🖼️~
 
 
-https://github.com/furkangonel/ml_shift-campaign_model/issues/1#issue-2851744995
+### **Kafe & Restoran İşletmeleri için Yapay Zeka Destekli Sipariş ve Vardiya Yönetimi**  
 
-    Projenin Amacı: Kafe-Restoran işlemelerinde kullanılan sipariş sistemlerine entregre edebileceğiniz basit bir AI-API. 
-        API' nin beklediği parametler,
-        * 1. model için; 
-            class IncomingData_Model1(BaseModel):
+[![GitHub issues](https://img.shields.io/github/issues/furkangonel/ml_shift-campaign_model)](https://github.com/furkangonel/ml_shift-campaign_model/issues)  
+[![GitHub stars](https://img.shields.io/github/stars/furkangonel/ml_shift-campaign_model)](https://github.com/furkangonel/ml_shift-campaign_model/stargazers)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
+
+
+**ML Shift & Campaign Model API**, kafe ve restoran işletmelerinin **sipariş yönetimini** ve **çalışan vardiya planlamasını** optimize etmek için geliştirilmiş bir **Yapay Zeka tabanlı API**'dir.  
+
+
+## 📌 Projenin Amacı:
+Kafe-Restoran işlemelerinde kullanılan sipariş sistemlerine entregre edebileceğiniz basit bir AI-API. 
+API' nin beklediği parametler,
+* 1. model için; 
+            ```class IncomingData_Model1(BaseModel):
                 date: datetime
                 name: str
                 density_level: float
@@ -16,13 +25,13 @@ https://github.com/furkangonel/ml_shift-campaign_model/issues/1#issue-2851744995
                 day_off_preferred: List[str]
        
         * 2.Model için;
-            class Product(BaseModel):
+            ```class Product(BaseModel):
                 product: str
                 price: float
                 profit_margin: float
                 quantity: int
 
-            class IncomingData_Model2(BaseModel):
+            ```class IncomingData_Model2(BaseModel):
                 order_id: int
                 products: List[Product]
 
@@ -40,33 +49,30 @@ https://github.com/furkangonel/ml_shift-campaign_model/issues/1#issue-2851744995
 
     2. Model: işletmedeki geçmiş sipariş verileri FP-Growth birliktelik algoritmasından geçirilmiş ve sonrasında bu çıktılar işlenip sınıflandırma modeli eğitiminde kullanılmıştır. Bu eğitim sonucunda da %95 başarım(accuracy) alınmıştır.
 
+| Model  | Açıklama | Başarım Oranı |
+|--------|----------|--------------|
+| **1. Model** | Çalışan vardiya tahminleme | **%66** |
+| **2. Model** | Kampanya önerileri | **%95** |
 
 
 
-1️⃣ Projeyi Klonla
-
+```sh
 git clone https://github.com/furkangonel/ml_shift-campaign_model.git
 cd ml_shift-campaign_model
-
-
-2️⃣ Gerekli Bağımlılıkları Yükleyin
 pip install -r requirements.txt
-
-
-3️⃣ Projeyi Çalıştır
 uvicorn main:app --reload
+```
 
-
-
+```sh
 🛠 Kullanılan Teknolojiler
 	•	Python 🐍 - Backend geliştirme için
 	•	FastAPI 🚀 - API geliştirme
 	•	MongoDB 🍃 - NoSQL veritabanı
 	•	TensorFlow / Scikit-learn 🤖 - Makine öğrenmesi
-
+```
 
 
 
 📜 Lisans
 
-Bu proje MIT Lisansı altında sunulmaktadır. Daha fazla bilgi için LICENSE dosyasına göz atabilirsiniz.
+Bu proje MIT Lisansı altında sunulmaktadır. Daha fazla bilgi için 📜 [Lisans](LICENSE) dosyasına göz atabilirsiniz.
