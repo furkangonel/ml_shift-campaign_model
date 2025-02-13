@@ -1,78 +1,98 @@
-~Project Schema 🖼️~
-
-
-### **Kafe & Restoran İşletmeleri için Yapay Zeka Destekli Sipariş ve Vardiya Yönetimi**  
+### **Artificial Intelligence Supported Order and Shift Management for Cafe & Restaurant Businesses**  
 
 [![GitHub issues](https://img.shields.io/github/issues/furkangonel/ml_shift-campaign_model)](https://github.com/furkangonel/ml_shift-campaign_model/issues)  
 [![GitHub stars](https://img.shields.io/github/stars/furkangonel/ml_shift-campaign_model)](https://github.com/furkangonel/ml_shift-campaign_model/stargazers)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
 
 
-**ML Shift & Campaign Model API**, kafe ve restoran işletmelerinin **sipariş yönetimini** ve **çalışan vardiya planlamasını** optimize etmek için geliştirilmiş bir **Yapay Zeka tabanlı API**'dir.  
+**ML Shift & Campaign Model API** is an **Artificial Intelligence based API** developed to optimise **order management** and **employee shift planning** for cafe and restaurant businesses. 
 
 
-## 📌 Projenin Amacı:
-Kafe-Restoran işlemelerinde kullanılan sipariş sistemlerine entregre edebileceğiniz basit bir AI-API. 
-API' nin beklediği parametler,
-* 1. model için; 
-            ```class IncomingData_Model1(BaseModel):
-                date: datetime
-                name: str
-                density_level: float
-                work_type: str
-                preferred_shift: List[str]
-                weekly_sales: float
-                day_off_preferred: List[str]
+## 📌 Description of the Project:
+A simple AI-API that you can integrate into order systems used in cafe-restaurant operations. 
+Parameters expected by the API,
+For Model_1; 
+    ```
+    class IncomingData_Model1(BaseModel):
+        date: datetime 
+         name: str
+         density_level: float  // average intensity for that day of the week
+         work_type: str  //'fulltime' or 'parttime'
+         preferred_shift: List[str] //one-hat-encoded as 'morning' or 'evening' (e.g. 1, 0 -> morning, 0, 1 -> evening)
+         weekly_sales: float   // total sales made by the employee that week
+         day_off_preferred: List[str]  // employee's leave preferences for that week (e.g. [Monday, Saturday])
        
-        * 2.Model için;
-            ```class Product(BaseModel):
-                product: str
-                price: float
-                profit_margin: float
-                quantity: int
+For Model_2;
+    ```
+    class Product(BaseModel):
+        product: str
+        price: float
+        profit_margin: float
+        quantity: int
 
-            ```class IncomingData_Model2(BaseModel):
-                order_id: int
-                products: List[Product]
-
-    + Shift tahminleyici model(1.model) verilen haftalık bilgilere göre o hafta için oluşturduğu shift planını pdf oalrak indirme imkanı da sunar.
-    + Kampanya tahminlyen model(2.model) verilen geçmiş sipariş verilerine göre birliktelik kurallarına uygun kampanya tahminleri oluşturarak pdf içerisinde kampanyaları sunar. (x ürünü alana y %a indirimli veya x ile y ürünlerini birlikte alana topalam %a indirim)
-
-    ÇIKTILAR:
-
-    https://github.com/furkangonel/ml_shift-campaign_model/issues/2#issue-2851830892
+    class IncomingData_Model2(BaseModel):
+        order_id: int
+        products: List[Product]
 
 
-    Bu proje içerisinde bulunan iki adet Classifier ML modelleri birbirinden bağımsız olarak eğitilimiştir.
-
-    1. Model: İşletmelerden toplanmış işletme yoğunluğu, çalışan bilgileri-talepleri ve sonuç(target) verileri ile eğitilmiş olup modelden testler sonucu %66 başarım elde edilmiştir.
-
-    2. Model: işletmedeki geçmiş sipariş verileri FP-Growth birliktelik algoritmasından geçirilmiş ve sonrasında bu çıktılar işlenip sınıflandırma modeli eğitiminde kullanılmıştır. Bu eğitim sonucunda da %95 başarım(accuracy) alınmıştır.
-
-| Model  | Açıklama | Başarım Oranı |
-|--------|----------|--------------|
-| **1. Model** | Çalışan vardiya tahminleme | **%66** |
-| **2. Model** | Kampanya önerileri | **%95** |
++ Shift estimator model (1st model) offers the opportunity to download the shift plan created for that week as a pdf according to the weekly information given.
++ Campaign forecasting model (2nd model) creates campaign forecasts in accordance with the rules of association according to the given past order data and presents the campaigns in pdf. (y %a discount for x product or total %a discount for x and y products together)
 
 
+**OUTPUTS:**
 
+## 📊 Shift Prediction Model
+![Shift Prediction](assets/output-1.png)
+
+## 🎯 Campaign Prediction Model
+![Campaign Prediction](assets/output-2.png)
+
+
+**The two Classifier ML models in this project were trained independently of each other.
+
+**Model_1**: It was trained with business density, employee information-demands and result (target) data collected from enterprises and 66% success was obtained from the model as a result of the tests.
+
+**Model_2**: The past order data in the enterprise was passed through the FP-Growth association algorithm and then these outputs were processed and used in the classification model training. As a result of this training, 95% accuracy was obtained.
+
+
+
+| Model  | Explanation | Accuracy |
+|--------|-------------|----------|
+| **1. Model** | Employee shift prediction | **%66** |
+| **2. Model** | Campaign prediction       | **%95** |
+
+
+1️⃣ Clone Project
 ```sh
 git clone https://github.com/furkangonel/ml_shift-campaign_model.git
 cd ml_shift-campaign_model
+```
+2️⃣ Install Required Dependencies
+```sh
 pip install -r requirements.txt
+```
+3️⃣ Run Project
+```sh
 uvicorn main:app --reload
 ```
+4️⃣ API Documentation
 
-```sh
-🛠 Kullanılan Teknolojiler
-	•	Python 🐍 - Backend geliştirme için
-	•	FastAPI 🚀 - API geliştirme
-	•	MongoDB 🍃 - NoSQL veritabanı
-	•	TensorFlow / Scikit-learn 🤖 - Makine öğrenmesi
-```
+For Swagger UI documentation:
+📌 http://127.0.0.1:8000/docs
+📌 http://127.0.0.1:8000/redoc
 
 
+**🛠️ Technologies Used**
+	- Python 🐍 - for backend development
+	- FastAPI 🚀 - API development
+	- MongoDB 🍃 - Database
+	- Scikit-learn 🤖 - Machine learning
+	- FP-Growth 📊 - Association analysis
+	- FPDF 📝 - PDF reporting
+	- Uvicorn ⚡ - API server
 
-📜 Lisans
 
-Bu proje MIT Lisansı altında sunulmaktadır. Daha fazla bilgi için 📜 [Lisans](LICENSE) dosyasına göz atabilirsiniz.
+
+**📜 LICENSE**
+
+This project is offered under the MIT Licence. For more information, see [LICENSE](LICENSE).
