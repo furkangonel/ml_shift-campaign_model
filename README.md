@@ -51,12 +51,12 @@ Parameters expected by the API,
 
 **OUTPUTS:**
 
-## 🎯 Shift Tahmin Modeli
+## 🎯 Shift Prediction Model
 <p align="center">
   <img src="assets/output-1.png" width="350">
 </p>
 
-## 🎯 Kampanya Tahmin Modeli
+## 🎯 Campaign Prediction Model
 <p align="center">
   <img src="assets/output-2.png" width="350">
 </p>
