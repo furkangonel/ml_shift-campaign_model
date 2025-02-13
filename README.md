@@ -8,7 +8,7 @@
 ## **General Schema**
 
 <p align="center">
-  <img src="assets/schema.png" width="350">
+  <img src="assets/schema.png" width="450">
 </p>
 
 
@@ -19,7 +19,8 @@
 ## 📌 Description of the Project:
 A simple AI-API that you can integrate into order systems used in cafe-restaurant operations. 
 Parameters expected by the API,
-For Model_1; 
+
+# For Model_1;
 ```
     class IncomingData_Model1(BaseModel):
         date: datetime 
@@ -31,7 +32,7 @@ For Model_1;
          day_off_preferred: List[str]  // employee's leave preferences for that week (e.g. [Monday, Saturday])
 ```
    
-For Model_2;
+# For Model_2;
 ```
     class Product(BaseModel):
         product: str
@@ -60,7 +61,7 @@ For Model_2;
 </p>
 
 
-**The two Classifier ML models in this project were trained independently of each other.
+**The two Classifier ML models in this project were trained independently of each other.**
 
 **Model_1**: It was trained with business density, employee information-demands and result (target) data collected from enterprises and 66% success was obtained from the model as a result of the tests.
 
@@ -74,34 +75,34 @@ For Model_2;
 | **2. Model** | Campaign prediction       | **%95** |
 
 
-1️⃣ Clone Project
+**1️⃣ Clone Project**
 ```sh
 git clone https://github.com/furkangonel/ml_shift-campaign_model.git
 cd ml_shift-campaign_model
 ```
-2️⃣ Install Required Dependencies
+**2️⃣ Install Required Dependencies**
 ```sh
 pip install -r requirements.txt
 ```
-3️⃣ Run Project
+**3️⃣ Run Project**
 ```sh
 uvicorn main:app --reload
 ```
-4️⃣ API Documentation
+**4️⃣ API Documentation**
 
 For Swagger UI documentation:
-📌 http://127.0.0.1:8000/docs
-📌 http://127.0.0.1:8000/redoc
+# 📌 http://127.0.0.1:8000/docs
+# 📌 http://127.0.0.1:8000/redoc
 
 
 **🛠️ Technologies Used**
-	- Python 🐍 - for backend development
-	- FastAPI 🚀 - API development
-	- MongoDB 🍃 - Database
-	- Scikit-learn 🤖 - Machine learning
-	- FP-Growth 📊 - Association analysis
-	- FPDF 📝 - PDF reporting
-	- Uvicorn ⚡ - API server
+#	- Python 🐍 - for backend development
+#	- FastAPI 🚀 - API development
+#	- MongoDB 🍃 - Database
+#	- Scikit-learn 🤖 - Machine learning
+#	- FP-Growth 📊 - Association analysis
+#	- FPDF 📝 - PDF reporting
+#	- Uvicorn ⚡ - API server
 
 
 
