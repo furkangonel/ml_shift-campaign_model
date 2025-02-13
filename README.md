@@ -41,11 +41,14 @@ For Model_2;
 
 **OUTPUTS:**
 
-## 📊 Shift Prediction Model
-![Shift Prediction](assets/output-1.png)
+<p align="center">
+  <img src="assets/shift-prediction-example.png" width="350">
+</p>
 
-## 🎯 Campaign Prediction Model
-![Campaign Prediction](assets/output-2.png)
+## 🎯 Kampanya Tahmin Modeli
+<p align="center">
+  <img src="assets/campaign-prediction-example.png" width="350">
+</p>
 
 
 **The two Classifier ML models in this project were trained independently of each other.
