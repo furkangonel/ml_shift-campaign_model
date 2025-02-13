@@ -97,14 +97,15 @@ For Swagger UI documentation:
 
 
 **🛠️ Technologies Used**
-#	- Python 🐍 - for backend development
-#	- FastAPI 🚀 - API development
-#	- MongoDB 🍃 - Database
-#	- Scikit-learn 🤖 - Machine learning
-#	- FP-Growth 📊 - Association analysis
-#	- FPDF 📝 - PDF reporting
-#	- Uvicorn ⚡ - API server
-
+```sh
+	- Python 🐍 - for backend development
+	- FastAPI 🚀 - API development
+	- MongoDB 🍃 - Database
+	- Scikit-learn 🤖 - Machine learning
+	- FP-Growth 📊 - Association analysis
+	- FPDF 📝 - PDF reporting
+	- Uvicorn ⚡ - API server
+```
 
 
 **📜 LICENSE**
