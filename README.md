@@ -5,6 +5,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
 
 
+## **General Schema**
+
+<p align="center">
+  <img src="assets/schema.png" width="350">
+</p>
+
+
+
 **ML Shift & Campaign Model API** is an **Artificial Intelligence based API** developed to optimise **order management** and **employee shift planning** for cafe and restaurant businesses. 
 
 
@@ -12,7 +20,7 @@
 A simple AI-API that you can integrate into order systems used in cafe-restaurant operations. 
 Parameters expected by the API,
 For Model_1; 
-    ```
+```
     class IncomingData_Model1(BaseModel):
         date: datetime 
          name: str
@@ -21,9 +29,10 @@ For Model_1;
          preferred_shift: List[str] //one-hat-encoded as 'morning' or 'evening' (e.g. 1, 0 -> morning, 0, 1 -> evening)
          weekly_sales: float   // total sales made by the employee that week
          day_off_preferred: List[str]  // employee's leave preferences for that week (e.g. [Monday, Saturday])
-       
+```
+   
 For Model_2;
-    ```
+```
     class Product(BaseModel):
         product: str
         price: float
@@ -33,7 +42,7 @@ For Model_2;
     class IncomingData_Model2(BaseModel):
         order_id: int
         products: List[Product]
-
+```
 
 + Shift estimator model (1st model) offers the opportunity to download the shift plan created for that week as a pdf according to the weekly information given.
 + Campaign forecasting model (2nd model) creates campaign forecasts in accordance with the rules of association according to the given past order data and presents the campaigns in pdf. (y %a discount for x product or total %a discount for x and y products together)
@@ -42,12 +51,12 @@ For Model_2;
 **OUTPUTS:**
 
 <p align="center">
-  <img src="assets/shift-prediction-example.png" width="350">
+  <img src="assets/output-1.png" width="350">
 </p>
 
 ## 🎯 Kampanya Tahmin Modeli
 <p align="center">
-  <img src="assets/campaign-prediction-example.png" width="350">
+  <img src="assets/output-2.png" width="350">
 </p>
 
 
