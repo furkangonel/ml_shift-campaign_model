@@ -1,0 +1,9 @@
+fastapi
+pydantic
+numpy
+pandas
+scikit-learn
+joblib
+fpdf
+uvicorn
+tempfile
